@@ -11,6 +11,10 @@ import axios from 'axios'
 Vue.prototype.$axios = axios
 import './assets/rem'
 import './assets/common.css'
+// 导入vant
+import Vant from 'vant';
+import 'vant/lib/index.css';
+Vue.use(Vant);
 
 Vue.config.productionTip = false
 

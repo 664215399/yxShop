@@ -12,7 +12,10 @@ axios.interceptors.response.use((response)=>{
     // 隐藏loading
     // setTimeout(() => {
         store.state.isLoading = false
-        return response
+        if(response.status==200){
+            return response.data
+        }
+        
     // }, 2000);
 })
 // 将axios在原型上定义
