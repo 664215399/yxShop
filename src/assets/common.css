@@ -1,0 +1,66 @@
+/*清除默认样式*/
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: #000000;
+}
+body{
+    font-size: 0.5rem;
+    height: 100%;
+}
+html{
+    height: 100%;
+}
+/* 路由动画 */
+/* 开始动画之前 */
+.left-enter{
+    transform: translateX(100%)
+}
+/* 动画结束 */
+.leftr-enter-to{
+    transform: translateX(0)
+}
+/* 动画过渡 */
+.left-enter-active{
+    transition: all 2s;
+}
+/* 离开动画之前 */
+.left-leave{
+    transform: translateX(0)
+}
+/* 动画离开之后 */
+.left-leave-to{
+    transform: translateX(-100%)
+}
+/* 动画过渡 */
+.left-leave-active{
+    transition: all 2s;
+}
+/* 开始动画之前 */
+.right-enter{
+    transform: translateX(-100%)
+}
+/* 动画结束 */
+.right-enter-to{
+    transform: translateX(0)
+}
+/* 动画过渡 */
+.right-enter-active{
+    transition: all 2s;
+}
+/* 离开动画之前 */
+.right-leave{
+    transform: translateX(0)
+}
+/* 动画离开之后 */
+.router1-leave-to{
+    transform: translateX(100%)
+}
+/* 动画过渡 */
+.right-leave-active{
+    transition: all 2s;
+}
