@@ -42,8 +42,9 @@
             <van-button type="primary" :disabled="btndis" @click="gettel">{{ms}}</van-button>
           </template>
         </van-field>
-        <van-button type="info" block class="res" @click=" checkForm">立即注册</van-button>
+        <van-button type="info" block class="res" @click="checkForm">立即注册</van-button>
       </van-form>
+      <a href="http://localhost:8080/#/shop/login" style="color:blue;margin:0 auto; display:block;text-align:center;">已有账号？立即登入</a>
     </div>
   </div>
 </template>
@@ -71,11 +72,15 @@ export default {
       arealist: area,
       ms:'发送验证码',
       btndis:false,
+      // 省市
+      province:"",
+      city1:'',
     };
   },
   created() {},
   mounted() {
     this.getImg();
+    // this.registerSubmit()
   },
   methods: {
     //   表单校验
@@ -103,7 +108,8 @@ export default {
         this.$toast.fail("两次密码不一致");
         return false;
       }
-      this.$toast.success("注册成功");
+      this.registerSubmit()
+      
     },
     //   表单校验结束
     //  获取图形验证码
@@ -114,11 +120,12 @@ export default {
     },
     // 选择地区
     con(val) {
-        console.log(val)
         let mm=val.map((value)=>{
             return value.name
         })
-        this.city=mm.join('/')
+        this.province=mm[0]
+        this.city1=mm[1]
+        this.city=mm.join(' ')
         this.show=false;
     },
     // 倒计时
@@ -148,7 +155,29 @@ export default {
         }).then(res=>{
             this.countsecond()
         })
+    },
+    // 注册提交验证
+    registerSubmit(){
+      this.$axios({
+        url:'https://api.it120.cc/small4/user/m/register',
+         params:{
+              mobile:this.tel,
+              pwd:this.pwd,
+              code:this.code,
+              nick:this.username,
+              province:this.province,
+              city:this.city1
+            }
+      }).then(res=>{
+        if(res.code!=0){
+          this.$toast.fail(res.msg)
+          return false
+        }
+        console.log(res)
+        this.$toast.success("注册成功");
+      })
     }
+
   }
 };
 </script>

@@ -17,7 +17,14 @@ import 'vant/lib/index.css';
 Vue.use(Vant);
 
 Vue.config.productionTip = false
-
+// 全区路由首位
+router.beforeEach((to,from,next)=>{
+  // 判断是否有title属性，设置成页面title
+  if(to.hasOwnProperty('meta')){
+    document.title=to.meta.title
+  }
+  next()
+})
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
