@@ -1,13 +1,13 @@
 <template>
   <div class="shopcont">
     <!-- 轮播图区域 -->
-    <van-swipe class="swipe" :autoplay="3000" indicator-color="white">
+    <!-- <van-swipe class="swipe" :autoplay="3000" indicator-color="white">
       <van-swipe-item v-for="(value,index) in banners" :key="index" class="item">
         <img :src="value.pic" />
       </van-swipe-item>
-    </van-swipe>
+    </van-swipe> -->
     <!-- 商品简介 -->
-    <div class="jianjie">
+    <!-- <div class="jianjie">
       <p>{{jianjie.name}}</p>
       <p v-html="jianjie.characteristic"></p>
       <p>
@@ -15,14 +15,15 @@
         <span>原价${{jianjie.originalPrice}}</span>
         <span>库存{{jianjie.stores}}</span>
       </p>
-    </div>
+    </div> -->
+    <cutcont :banners="banners" :content="content"></cutcont>
     <!-- 选项卡 -->
-    <van-tabs v-model="active" class="xxk">
+    <!-- <van-tabs v-model="active" class="xxk">
       <van-tab title="商品介绍" class="xxk-jieshao">
         <p v-html="content"></p>
       </van-tab>
       <van-tab title="商品评价"></van-tab>
-    </van-tabs>
+    </van-tabs> -->
     <!-- 底部 -->
     <van-goods-action class="good-action">
       <van-goods-action-icon icon="chat-o" text="客服" dot />
@@ -50,6 +51,7 @@
 </template>
 
 <script>
+import cutcont from '../cutcont/cutcont'
 export default {
   data() {
     return {
@@ -110,6 +112,10 @@ export default {
   },
   created() {
     this.pid = this.$route.params.id;
+  },  
+  // 注册组件
+  components:{
+    cutcont
   },
   mounted() {
     this.getData();

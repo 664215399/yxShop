@@ -18,7 +18,7 @@
       </van-card>
     </div>
     <!-- 提交栏 -->
-    <van-submit-bar :price="allMoney" button-text="提交订单" @submit="submitOrder">
+    <van-submit-bar :price="allMoney" button-text="提交订单" @submit="submitOrder" style="margin-bottom:1.5rem;">
       <van-checkbox v-model="checked">全选</van-checkbox>
     </van-submit-bar>
   </div>

@@ -5,7 +5,7 @@
     <!-- 砍价 -->
     <div class="cut">
       <router-link to="/cutlist" tag="p" class="biaoti">全民砍价 ></router-link>
-      <cut :cut="cut"></cut>
+      <cut :cut="cut" :cutList='cutList'></cut>
     </div>
 
     <!-- 精选 -->
@@ -31,6 +31,7 @@ export default {
       swipe: [],
       //   砍价
       cut: [],
+      cutList:[], 
       //   精选专题
       good: [],
       //   商品列表
@@ -70,7 +71,8 @@ export default {
       this.$axios({
         url: "https://api.it120.cc/small4/shop/goods/kanjia/list"
       }).then(res => {
-        // console.log(res);
+        console.log(res);
+        this.cutList=res.data.result
         for (var i in res.data.goodsMap) {
           if (this.cut.length < 3) {
             this.cut.push(res.data.goodsMap[i]);

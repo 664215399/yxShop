@@ -11,11 +11,18 @@ import tuijianlist from '@/components/good/tuijianlist'
 import tuijian from '@/components/tuijian'
 import goods from '../views/contList/goods'
 import articlelist from '../views/article/articlelist'
+import cutcont from '../views/cutcont/cutcont'
+import cutcontent from '../views/cutcont/cutcontent'
+import kanjia from '../views/cutcont/kanjia'
+import address from '../views/address/address'
+import addressCreate from '../views/address/addressCreate'
 import content from '../views/article/content'
 import shopcont from '../views/shopcont/shopcont'
 import search from '@/components/good/search'
 import orderlist from '../views/order/orderlist'
 import paylist from '../views/order/paylist'
+// 图片懒加载
+import imgloading from '../views/imgloading/imgloading'
 
 const shop = [
     // 注册页面路由
@@ -125,6 +132,49 @@ const shop = [
             title: "支付详情"
         }
     },
+      // 砍价详情页
+      {
+        path: '/cutcont',
+        name: 'cutcont',
+        component: cutcont,
+        meta: {
+            title: "砍价详情"
+        }
+    },
+     // 注册页面路由
+     {
+        path: '/address',
+        name: 'address',
+        component: address,
+        meta: {
+            title: "收货地址"
+        }
+    },
+      // 注册页面路由
+      {
+        path: '/addressCreate',
+        name: 'addressCreate',
+        component: addressCreate,
+        meta: {
+            title: "添加收货地址"
+        }
+    },
+    {
+        path: '/cutcontent/:id/:userId',
+        name: 'cutcontent',
+        component: cutcontent,
+        meta: {
+            title: "砍价详情"
+        }
+    },
+    {
+        path: '/kanjia',
+        name: 'kanjia',
+        component: kanjia,
+        meta: {
+            title: "砍价详情"
+        }
+    },
     // tab
     {
         path: '/tab',
@@ -164,6 +214,15 @@ const shop = [
                 }
             },
         ]
+    },
+    // 图片懒加载
+      {
+        path: '/imgloading',
+        name: 'imgloading',
+        component: imgloading,
+        meta: {
+            title: "图片懒加载"
+        }
     },
 
 ]
